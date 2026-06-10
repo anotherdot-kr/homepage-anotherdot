@@ -1,0 +1,110 @@
+@import url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@master/pretendard-subset.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #496f7d;
+  --secondary: #549794;
+  --dark: #29484d;
+  --text: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--text);
+  background: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-label {
+  color: #496f7d;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.section-title {
+  font-size: clamp(28px, 7vw, 48px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.body-text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.hero-label {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.card-base {
+  border-radius: 16px;
+  border: 1px solid #eef0f1;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(41, 72, 77, 0.08);
+}
+
+.pill-btn {
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.pill-btn:hover {
+  transform: translateY(-1px);
+}
+
+.cta-glass {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.cta-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.46) 0%, rgba(9, 22, 31, 0.78) 100%);
+  z-index: -1;
+}
+
+.logo-placeholder {
+  border: 1px dashed rgba(73, 111, 125, 0.45);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: client-marquee 16s linear infinite;
+}
+
+@keyframes client-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
