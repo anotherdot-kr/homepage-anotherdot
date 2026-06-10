@@ -46,20 +46,20 @@ export default function About() {
           </motion.figure>
 
           <motion.div
-            className="mt-0 pt-0 md:flex-1 break-keep pl-16 md:pl-20"
+            className="md:flex-1 break-keep pt-10 pl-8 md:pl-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <p className="mb-1 text-[24px] font-extrabold text-[#29484D]">어나더닷 대표 이가람</p>
-            <p className="mb-1 text-[15px] font-bold text-[#496F7D]">설득 및 발표 설계 디렉터</p>
+            <p className="mb-1 text-[28px] font-extrabold text-[#29484D]">어나더닷 대표 이가람</p>
+            <p className="mb-1 text-[16px] font-bold text-[#496F7D]">설득 및 발표 설계 디렉터</p>
             <p className="mb-6 text-[14px] font-normal text-[#666666]">
               발표 전략 설계 전문가로 기획부터 제작, 리허설까지 통합 설계합니다
             </p>
 
             <p className="mb-3 text-[14px] font-bold tracking-[0.12em] text-[#496F7D]">CAREER</p>
-            <ul className="text-[14px] font-normal leading-[2] text-[#555555]">
+            <ul className="text-[15px] font-normal leading-[2] text-[#555555]">
               {careers.map((career) => (
                 <li key={career} className="break-keep [word-break:keep-all]">
                   <span className="text-[#496F7D]">·</span> {career}
