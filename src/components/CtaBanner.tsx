@@ -11,16 +11,28 @@ const labelClass = "block text-[14px] font-medium text-white";
 export default function CtaBanner() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-    await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: "14fc12db-f479-49fb-9b07-123ace104377",
-        ...Object.fromEntries(formData),
-      }),
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "14fc12db-f479-49fb-9b07-123ace104377",
+          ...Object.fromEntries(formData),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      alert("?? ??? ???????. ??? ????????!");
+      form.reset();
+    } catch {
+      alert("?? ? ??? ??????. ?? ??????.");
+    }
   };
 
   return (
