@@ -9,25 +9,22 @@ const fieldClass =
 const labelClass = "block text-[14px] font-medium text-white";
 
 export default function CtaBanner() {
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+    const formData = new FormData(event.currentTarget);
     formData.append("access_key", "14fc12db-f479-49fb-9b07-123ace104377");
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
-      }
+    const data = await response.json();
 
+    if (data.success) {
       alert("상담 신청이 완료되었습니다!");
-      form.reset();
-    } catch {
+      event.currentTarget.reset();
+    } else {
       alert("오류가 발생했습니다. 다시 시도해주세요.");
     }
   };
@@ -58,7 +55,7 @@ export default function CtaBanner() {
           </p>
 
           <form
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             className="mx-auto mt-10 max-w-[600px] rounded-2xl bg-white/10 p-6 text-left md:p-10"
           >
             <div className="grid gap-4 md:grid-cols-2">
