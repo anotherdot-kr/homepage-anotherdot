@@ -13,15 +13,12 @@ export default function CtaBanner() {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
+    formData.append("access_key", "14fc12db-f479-49fb-9b07-123ace104377");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "14fc12db-f479-49fb-9b07-123ace104377",
-          ...Object.fromEntries(formData),
-        }),
+        body: formData,
       });
 
       if (!response.ok) {
