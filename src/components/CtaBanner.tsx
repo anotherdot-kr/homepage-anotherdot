@@ -28,10 +28,10 @@ export default function CtaBanner() {
         throw new Error("Failed to submit form");
       }
 
-      alert("??? ???????!");
+      alert("상담 신청이 완료되었습니다!");
       form.reset();
     } catch {
-      alert("??? ??????. ?? ??????.");
+      alert("오류가 발생했습니다. 다시 시도해주세요.");
     }
   };
 
@@ -57,7 +57,7 @@ export default function CtaBanner() {
           <p className="body-text mx-auto mt-5 text-white/90 md:max-w-xl">
             발표 일정, 발표 유형, 현재 준비 상태를 남겨주세요.
             <br />
-            꼼꼼하게 확인 후 필요한 범위와 진행 방식을 안내합니다
+            꼼꼼하게 확인 후 필요한 범위와 진행 방식을 안내합니다.
           </p>
 
           <form
@@ -69,6 +69,7 @@ export default function CtaBanner() {
                 이름 / 회사 <span aria-hidden="true">*</span>
                 <input
                   required
+                  name="name"
                   type="text"
                   className={fieldClass}
                   placeholder="이름과 회사를 입력해 주세요"
@@ -78,6 +79,7 @@ export default function CtaBanner() {
                 연락처 <span aria-hidden="true">*</span>
                 <input
                   required
+                  name="phone"
                   type="tel"
                   className={fieldClass}
                   placeholder="010-0000-0000"
@@ -89,6 +91,7 @@ export default function CtaBanner() {
               <label className={labelClass}>
                 직급
                 <input
+                  name="position"
                   type="text"
                   className={fieldClass}
                   placeholder="예: 팀장, 대표"
@@ -98,6 +101,7 @@ export default function CtaBanner() {
                 발표 유형 <span aria-hidden="true">*</span>
                 <select
                   required
+                  name="type"
                   className={`${fieldClass} bg-[#29484D] text-white`}
                   defaultValue=""
                 >
@@ -119,6 +123,7 @@ export default function CtaBanner() {
               문의 내용 <span aria-hidden="true">*</span>
               <textarea
                 required
+                name="message"
                 className={`${fieldClass} h-[120px] resize-none`}
                 placeholder="발표 일정, 준비 상태, 필요한 범위를 적어주세요"
               />
